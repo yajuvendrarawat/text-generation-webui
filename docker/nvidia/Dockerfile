@@ -10,7 +10,7 @@ ARG APP_GID="${APP_GID:-6972}"
 
 RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     yum upgrade -y && \
-    yum install -y git vim build-essential python3-dev pip bash curl && \
+    yum install -y git vim gcc gcc-c++ kernel-devel make python3-dev pip bash curl && \
     rm -rf /var/lib/apt/lists/*
 WORKDIR /opt/app-root/src
 RUN git clone https://github.com/yajuvendrarawat/text-generation-webui.git 
